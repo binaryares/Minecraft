@@ -35,6 +35,8 @@ PLAYER_HEIGHT = 2
 
 if sys.version_info[0] >= 3:
     xrange = range
+    time.clock = time.perf_counter#add time compatability for python 3.8
+
 
 def cube_vertices(x, y, z, n):
     """ Return the vertices of the cube at position x, y, z with size 2*n.
