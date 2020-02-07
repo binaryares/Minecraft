@@ -42,13 +42,19 @@ def cube_vertices(x, y, z, n):
     """ Return the vertices of the cube at position x, y, z with size 2*n.
 
     """
+    a = x-n
+    b = x+n
+    c = y-n
+    d = y+n
+    e = z-n
+    f = z+n
     return [
-        x-n,y+n,z-n, x-n,y+n,z+n, x+n,y+n,z+n, x+n,y+n,z-n,  # top
-        x-n,y-n,z-n, x+n,y-n,z-n, x+n,y-n,z+n, x-n,y-n,z+n,  # bottom
-        x-n,y-n,z-n, x-n,y-n,z+n, x-n,y+n,z+n, x-n,y+n,z-n,  # left
-        x+n,y-n,z+n, x+n,y-n,z-n, x+n,y+n,z-n, x+n,y+n,z+n,  # right
-        x-n,y-n,z+n, x+n,y-n,z+n, x+n,y+n,z+n, x-n,y+n,z+n,  # front
-        x+n,y-n,z-n, x-n,y-n,z-n, x-n,y+n,z-n, x+n,y+n,z-n,  # back
+        a,d,e, a,d,f, b,d,f, b,d,e,  # top
+        a,c,e, b,c,e, b,c,f, a,c,f,  # bottom
+        a,c,e, a,c,f, a,d,f, a,d,e,  # left
+        b,c,f, b,c,e, b,d,e, b,d,f,  # right
+        a,c,f, b,c,f, b,d,f, a,d,f,  # front
+        b,c,e, a,c,e, a,d,e, b,d,e,  # back
     ]
 
 
