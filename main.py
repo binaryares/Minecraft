@@ -710,8 +710,8 @@ class Window(pyglet.window.Window):
         if self.exclusive:
             m = 0.15
             x, y = self.rotation
-            x, y = x + dx * m, y + dy * m
-            y = max(-90, min(90, y))
+            x = x + dx * m
+            y = max(-90, min(90, y + dy * m))
             self.rotation = (x, y)
 
     def on_key_press(self, symbol, modifiers):
@@ -895,7 +895,7 @@ def setup():
     # as smooth."
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
-    setup_fog()
+    #setup_fog()
 
 
 def main():
